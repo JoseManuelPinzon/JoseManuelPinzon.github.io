@@ -4,26 +4,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portafolio - Jose Manuel Pinzón</title>
-    <style>
+        <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
             font-family: Arial, sans-serif;
         }
-
+    
         html {
             scroll-behavior: smooth;
         }
-
+    
         body {
             background-image: url('https://raw.githubusercontent.com/JoseManuelPinzon/JoseManuelPinzon.github.io/refs/heads/main/img/ChatGPT%20Image%2012%20ago%202025%2C%2005_01_33%20p.m..png');
             background-size: cover;
             background-position: center top;
             background-repeat: no-repeat;
             color: white;
+            --scrollY: 0px; /* variable para animación */
+            transition: background-size 0.1s ease-out, background-position 0.1s ease-out;
         }
-
+    
+        body.scrolled {
+            background-position: center calc(0% + var(--scrollY) / 5);
+            background-size: calc(100% + var(--scrollY) / 10);
+        }
+    
         header {
             background: rgba(0,0,0,0.7);
             color: white;
@@ -32,31 +39,31 @@
             top: 0;
             z-index: 1000;
         }
-
+    
         nav {
             display: flex;
             justify-content: center;
             gap: 20px;
         }
-
+    
         nav a {
             color: white;
             text-decoration: none;
             font-weight: bold;
         }
-
+    
         nav a:hover {
             color: #ffcc00;
         }
-
+    
         section {
             padding: 50px 20px;
             max-width: 1000px;
             margin: auto;
-            background: rgba(0,0,0,0.5); /* Transparencia para ver el fondo */
+            background: rgba(0,0,0,0.5);
             border-radius: 10px;
         }
-
+    
         .hero {
             text-align: center;
             color: white;
@@ -66,7 +73,7 @@
             justify-content: center;
             position: relative;
         }
-
+    
         .hero::before {
             content: "";
             position: absolute;
@@ -74,56 +81,44 @@
             width: 100%; height: 100%;
             background: rgba(0,0,0,0.4);
         }
-
+    
         .hero-content {
             position: relative;
             z-index: 1;
         }
-
+    
         .hero h1 {
             font-size: 2.5rem;
             margin-bottom: 10px;
         }
-
+    
         .hero p {
             font-size: 1.2rem;
         }
-
+    
         .highlight-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 20px;
         }
-
+    
         .highlight-item {
             background: white;
             border-radius: 10px;
             overflow: hidden;
             box-shadow: 0px 2px 5px rgba(0,0,0,0.1);
         }
-
+    
         .highlight-item img {
             width: 100%;
             height: auto;
         }
-
+    
         .highlight-item h3 {
             padding: 15px;
         }
-
-        body {
-            background-size: cover;
-            background-position: center top;
-            background-repeat: no-repeat;
-            color: white;
-        }
-
-body.scrolled {
-    background-position: center calc(0% + var(--scrollY));
-    background-size: calc(100% + var(--scrollY) / 5);
-}
-
     </style>
+
 </head>
 
 <body>
@@ -171,5 +166,18 @@ body.scrolled {
         document.body.style.setProperty("--scrollY", scrollY + "px");
     });
 </script>
+    <script>
+    window.addEventListener("scroll", () => {
+        let scrollY = window.scrollY;
+        document.body.style.setProperty("--scrollY", scrollY + "px");
+
+        if (scrollY > 0) {
+            document.body.classList.add("scrolled");
+        } else {
+            document.body.classList.remove("scrolled");
+        }
+    });
+</script>
+
 </body>
 </html>
