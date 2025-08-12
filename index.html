@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portafolio - Jose Manuel Pinzón</title>
-        <style>
+    <title>Portafolio - José Manuel Pinzón</title>
+    <style>
         * {
             margin: 0;
             padding: 0;
@@ -121,6 +121,10 @@
         .highlight-item h3 {
             padding: 15px;
         }
+        .fade-on-scroll {
+        transition: opacity 0.4s ease-out;
+        }
+
     </style>
 
 </head>
@@ -137,8 +141,8 @@
 
 <section id="inicio" class="hero">
     <div class="hero-content">
-        <h1>Jose Manuel Pinzón</h1>
-        <p>Diseñador gráfico y productor audiovisual apasionado por contar historias visuales.</p>
+        <h1 class="fade-on-scroll">José Manuel Pinzón</h1>
+        <p class="fade-on-scroll">Diseñador gráfico y productor audiovisual apasionado por contar historias visuales.</p>
     </div>
 </section>
 
@@ -180,6 +184,17 @@
         } else {
             document.body.classList.remove("scrolled");
         }
+    });
+</script>
+<script>
+    const fadeElements = document.querySelectorAll('.fade-on-scroll');
+
+    window.addEventListener("scroll", () => {
+        let scrollY = window.scrollY;
+        fadeElements.forEach(el => {
+            let opacity = Math.max(0, 1 - scrollY / 300); 
+            el.style.opacity = opacity;
+        });
     });
 </script>
 
