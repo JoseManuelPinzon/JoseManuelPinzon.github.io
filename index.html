@@ -20,7 +20,6 @@
             background-image: url('https://raw.githubusercontent.com/JoseManuelPinzon/JoseManuelPinzon.github.io/refs/heads/main/img/ChatGPT%20Image%2012%20ago%202025%2C%2005_01_33%20p.m..png');
             background-size: cover;
             background-position: center top;
-            background-attachment: fixed; /* Efecto parallax */
             background-repeat: no-repeat;
             color: white;
         }
@@ -111,8 +110,22 @@
         .highlight-item h3 {
             padding: 15px;
         }
+
+        body {
+            background-size: cover;
+            background-position: center top;
+            background-repeat: no-repeat;
+            color: white;
+        }
+
+body.scrolled {
+    background-position: center calc(0% + var(--scrollY));
+    background-size: calc(100% + var(--scrollY) / 5);
+}
+
     </style>
 </head>
+
 <body>
 
 <header>
@@ -152,6 +165,11 @@
     <h2>Mi Portafolio Completo</h2>
     <p>Aquí podrás encontrar todos mis proyectos de diseño y producción audiovisual.</p>
 </section>
-
+<script>
+    window.addEventListener("scroll", () => {
+        let scrollY = window.scrollY;
+        document.body.style.setProperty("--scrollY", scrollY + "px");
+    });
+</script>
 </body>
 </html>
