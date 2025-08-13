@@ -144,6 +144,31 @@
         transition: opacity 0.4s ease-out;
         }
 
+         .skill {
+            margin: 20px auto;
+            max-width: 500px;
+        }
+
+        .skill span {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        .progress-bar {
+            background: rgba(255,255,255,0.2);
+            border-radius: 20px;
+            overflow: hidden;
+            height: 20px;
+        }
+
+        .progress {
+            background: linear-gradient(90deg, #ffcc00, #ff8800);
+            height: 100%;
+            border-radius: 20px;
+            transition: width 1.5s ease-in-out;
+        }
+
     </style>
 
 </head>
@@ -162,7 +187,7 @@
     <div class="hero-content">
         <h1 class="fade-on-scroll">José Manuel Pinzón</h1>
         <h2 class="fade-on-scroll">COMUNIADOR Y PRODUCTOR AUDIOVISUAL</h2>
-        <p class="fade-on-scroll">Trasnformo conceptos en experiencias que dejan huella</p>
+        <p class="fade-on-scroll">"Trasnformo conceptos en experiencias que dejan huella"</p>
     </div>
 </section>
 
@@ -184,10 +209,32 @@
     </div>
 </section>
 
-<section id="portafolio">
-    <h2>Mi Portafolio Completo</h2>
-    <p>Aquí podrás encontrar todos mis proyectos de diseño y producción audiovisual.</p>
+<section id="experiencia" style="color: white; padding: 50px 20px;">
+    <h2 style="text-align:center;">Experiencia</h2>
+    <p style="text-align:center; font-size: 1.2rem;">Más de <strong>7 años</strong> de trayectoria en diseño gráfico y producción audiovisual.</p>
+
+    <div class="skill">
+        <span>After Effects</span>
+        <div class="progress-bar">
+            <div class="progress" style="width:80%;"></div>
+        </div>
+    </div>
+
+    <div class="skill">
+        <span>Photoshop</span>
+        <div class="progress-bar">
+            <div class="progress" style="width:80%;"></div>
+        </div>
+    </div>
+
+    <div class="skill">
+        <span>Illustrator</span>
+        <div class="progress-bar">
+            <div class="progress" style="width:70%;"></div>
+        </div>
+    </div>
 </section>
+
 <script>
     window.addEventListener("scroll", () => {
         let scrollY = window.scrollY;
