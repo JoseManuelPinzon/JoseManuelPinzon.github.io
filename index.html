@@ -40,14 +40,14 @@
             background-size: 80% auto;
             background-position: center top;
             background-repeat: no-repeat;
-            color: #0C0C0B;
-            --scrollY: 0px; /* variable para animación */
+            color: #0C0D0B;
+            --scrollY: 2px; /* variable para animación */
             transition: background-size 0.1s ease-out, background-position 0.1s ease-out;
         }
     
         body.scrolled {
             background-position: center calc(0% + var(--scrollY) / 5);
-            background-size: calc(80% + var(--scrollY) / 50);
+            background-size: calc(80% + var(--scrollY) / 10);
         }
     
         header {
