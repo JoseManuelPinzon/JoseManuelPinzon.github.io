@@ -149,8 +149,31 @@
             border-radius: 10px;
             overflow: hidden;
             box-shadow: 0px 2px 5px rgba(0,0,0,0.1);
+            position: relative;
         }
-    
+
+        .project-title-overlay {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(0,0,0,0.6);
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            font-size: 1.5rem;
+            font-family: 'Lato', sans-serif;
+            font-weight: 700;
+            transition: opacity 0.3s;
+            pointer-events: none;
+            text-align: center;
+            padding: 10px;
+        }
+
+        .highlight-item:hover .project-title-overlay {
+            opacity: 1;
+        }
         .highlight-item img {
             width: 100%;
             height: auto;
@@ -313,18 +336,20 @@
 </section>
 <section id="destacados">
     <h2>  Proyectos que dejaron huella  </h2>
-    <div class="highlight-grid">
         <div class="highlight-item">
             <img src="img/miniatura_documental.png" alt="Proyecto 1">
-            <h3>Proyecto 1</h3>
+            <div class="project-title-overlay">Proyecto 1</div>
+            <h3 style="display:none;">Proyecto 1</h3>
         </div>
         <div class="highlight-item">
             <img src="https://via.placeholder.com/400x250" alt="Proyecto 2">
-            <h3>Proyecto 2</h3>
+            <div class="project-title-overlay">Proyecto 2</div>
+            <h3 style="display:none;">Proyecto 2</h3>
         </div>
         <div class="highlight-item">
             <img src="https://via.placeholder.com/400x250" alt="Proyecto 3">
-            <h3>Proyecto 3</h3>
+            <div class="project-title-overlay">Proyecto 3</div>
+            <h3 style="display:none;">Proyecto 3</h3>
         </div>
     </div>
 </section>
