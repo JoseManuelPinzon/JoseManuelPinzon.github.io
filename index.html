@@ -242,7 +242,48 @@
         }   
 
     </style>
-
+    <style>
+    /* Modal styles */
+    .modal {
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    left: 0; top: 0;
+    width: 100vw; height: 100vh;
+    background: rgba(0,0,0,0.9);
+    justify-content: center;
+    align-items: center;
+    }
+    .modal-content {
+    background: transparent;
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 90vw;
+    max-height: 90vh;
+    overflow-y: auto;
+    position: relative;
+    color: #fff;
+    text-align: center;
+    }
+    .close {
+    position: absolute;
+    top: 10px; right: 20px;
+    font-size: 2rem;
+    color: #fff;
+    cursor: pointer;
+    z-index: 10;
+    }
+    .gallery-vertical {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+    }
+    .gallery-vertical img, .gallery-vertical video {
+    max-width: 100%;
+    border-radius: 8px;
+    }
+    </style>
 </head>
 
 <body>
@@ -257,8 +298,8 @@
 
 <section id="inicio" class="hero">
     <div class="hero-content">
-        <h1 class="fade-on-scroll">José Manuel Pinzón</h1>
-        <h2 class="fade-on-scroll">COMUNIADOR Y PRODUCTOR AUDIOVISUAL</h2>
+        <h1 class="fade-on-scroll">Jose Manuel Pinzon</h1>
+        <h2 class="fade-on-scroll">COMUNIADOR AUDIOVISUAL</h2>
         <p class="fade-on-scroll">"Trasnformo conceptos en experiencias que dejan huella"</p>
     </div>
 </section>
@@ -268,6 +309,7 @@
     <p style="text-align:center; font-size: 1.2rem;">
         Desde hace 7 años he creado contenidos visuales que conectan marcas y audiencias.<br>
         Mi pasión es transformar ideas en experiencias visuales impactantes y memorables.
+    </p>
 </section>
 <section id="destacados">
     <h2>  Proyectos que dejaron huella  </h2>
@@ -411,5 +453,61 @@
     window.addEventListener('load', animateProgressBars);
 </script>
 
+<div id="modal" class="modal">
+    <div id="modal-content" class="modal-content">
+        <!-- El contenido dinámico se inserta aquí -->
+    </div>
+</div>
+
+<script>
+    // Modal logic
+    const modal = document.getElementById('modal');
+    const modalContent = document.getElementById('modal-content');
+
+    // Contenido de cada proyecto
+    const projectContents = [
+        // Proyecto 1: Video documental1
+        `<div>
+            <h3>Documental</h3>
+            <iframe src="https://drive.google.com/file/d/1K18uEPaBVdPSj_x5XSDFQx3Z1-7lw_Cr/preview" width="640" height="360" allow="autoplay" style="border-radius:8px; max-width:100%;"></iframe>            </video>
+        </div>`,
+        // Proyecto 2: Galería vertical de fotos
+        `<h3>Galería Fotográfica</h3>
+        <div class="gallery-vertical">
+            <img src="URL_FOTO1.jpg" alt="Modelo 1">
+            <img src="URL_FOTO2.jpg" alt="Modelo 2">
+            <img src="URL_FOTO3.jpg" alt="Modelo 3">
+        </div>`,
+        // Proyecto 3: Fotos y gif
+        `<h3>Fotografías y GIF</h3>
+        <div class="gallery-vertical">
+            <img src="URL_FOTO4.jpg" alt="Foto 1">
+            <img src="URL_FOTO5.jpg" alt="Foto 2">
+            <img src="URL_GIF.gif" alt="GIF">
+        </div>`
+    ];
+
+    // Asigna eventos a los proyectos destacados
+    document.querySelectorAll('.highlight-item').forEach((item, idx) => {
+        item.style.cursor = 'pointer';
+        item.addEventListener('click', () => {
+            modal.style.display = 'flex';
+            modalContent.innerHTML = projectContents[idx] + `<span class="close" id="close-modal">&times;</span>`;
+            document.body.style.overflow = 'hidden';
+            // Reasigna el evento de cerrar porque el contenido se reemplaza
+            document.getElementById('close-modal').onclick = closeModalFunc;
+        });
+    });
+
+    function closeModalFunc() {
+        modal.style.display = 'none';
+        document.body.style.overflow = '';
+    }
+
+    // Cierra el modal al hacer clic fuera del contenido
+    modal.onclick = function(e) {
+        if (e.target === modal) closeModalFunc();
+    };
+</script>
 </body>
 </html>
